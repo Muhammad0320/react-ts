@@ -1,3 +1,4 @@
+import { type CartItems } from "../../store/cartSlice";
 import { useCartSelector } from "../../store/hooks";
 
 export default function CartItems() {
@@ -6,6 +7,10 @@ export default function CartItems() {
   const formattedTotalPrice = cartItems
     .reduce((acc, sum) => acc + sum.price, 0)
     ?.toFixed(2);
+
+  const handleRemoveFromCart = (id: string) => {};
+
+  const handleAddToCart = (items: CartItems) => {};
 
   return (
     <div id="cart">
