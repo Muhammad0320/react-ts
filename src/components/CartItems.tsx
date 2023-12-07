@@ -1,16 +1,22 @@
-import { type CartItems } from "../../store/cartSlice";
-import { useCartSelector } from "../../store/hooks";
+import { addItems, removeItems, type CartItems } from "../../store/cartSlice";
+import { useCartDispatch, useCartSelector } from "../../store/hooks";
 
 export default function CartItems() {
   const cartItems = useCartSelector((state) => state.cart.items);
 
+  const dispatch = useCartDispatch();
+
   const formattedTotalPrice = cartItems
-    .reduce((acc, sum) => acc + sum.price, 0)
+    .reduce((acc, sum) => acc + sum.price * sum.quantity, 0)
     ?.toFixed(2);
 
-  const handleRemoveFromCart = (id: string) => {};
+  const handleRemoveFromCart = (id: string) => {
+    dispatch(removeItems(id));
+  };
 
-  const handleAddToCart = (items: CartItems) => {};
+  const handleAddToCart = (items: CartItems) => {
+    dispatch(addItems(items));
+  };
 
   return (
     <div id="cart">
