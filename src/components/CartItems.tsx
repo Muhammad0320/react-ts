@@ -18,10 +18,12 @@ export default function CartItems() {
     dispatch(addItems(items));
   };
 
+  if (!cartItems.length) {
+    return <p>No items in cart!</p>;
+  }
+
   return (
     <div id="cart">
-      <p>No items in cart!</p>
-
       <ul id="cart-items">
         {cartItems.map((item) => {
           const formattedPrice = `$${item.price.toFixed(2)}`;
