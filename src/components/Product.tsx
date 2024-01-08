@@ -20,7 +20,7 @@ export default function Product({
   function handleAddToCart() {
     dispatch(addItems({ id, title, price }));
   }
-
+  
   return (
     <article className="product">
       <img src={image} alt={title} />

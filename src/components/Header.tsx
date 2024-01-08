@@ -8,11 +8,11 @@ export default function Header() {
   function handleOpenCartClick() {
     setCartIsVisible(true);
   }
-
+    
   function handleCloseCartClick() {
     setCartIsVisible(false);
   }
-
+     
   return (
     <>
       {cartIsVisible && <Cart onClose={handleCloseCartClick} />}
